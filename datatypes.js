@@ -80,8 +80,8 @@ z.check = "We're just checking z"
 
 // Symbol - it represents a unique value.
 
-let a = Symbol("unique a");
-let b = Symbol("unique a");
+let a = Symbol("Riya");
+let b = Symbol("Riya");
 
 // Check if both are same/equal to each other.
 // console.log(a === b);
