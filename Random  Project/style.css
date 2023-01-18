@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+:root{
+    --typewriterCharacters: 24;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 0.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    width: max-content;
+    margin: auto;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1::before {
+  background: rgb(123, 213, 249);
+  animation: typewriter 6s
+    steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
+  margin-top: 0.6em;
+  width: 0.125em;
+  height: 1em;
+  background: black;
+  animation: typewriter 6s
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+@keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+        opacity: 0;
+      } 50% {
+        opacity: 1;
+      }
+  }
+
+header{
+    background-color: rgba(0,173,239,0.5);;
+}  
+
+.wrapper{
+    width: 55%;
+    margin: auto;
+    margin-top: 4%;
+    display: flex;
+    align-items: center;
+}
+
+span{
+    font-size: 4rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#hand-shake.animate, #hand-shake:hover {
+    animation: hand-shake 1.3s infinite;
+    transform-origin: 50% 50% 0;
+}
+
+@keyframes hand-shake {
+    0%, 100% {transform: translateY(0px) rotate(0deg)}
+    30% {transform: translateY(5px) rotate(6deg)}
+    70% {transform: translateY(-5px) rotate(-6deg)}
+}
+
+.profile-card{
+    width: 40%;
+    margin: auto;
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(3px);
+}
+
+.profile-card:hover{
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 0, 0, 0.3);
+    filter: grayscale(0) saturate(105%) brightness(100%) contrast(100%);
+    cursor: pointer;
+}
+
+.profile-header{
+   height: 7em;
+}
+
+.profile-body{
+    background-color: rgba(234, 228, 228, 0.562);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px 40px 40px;
+}
+
+.profile-img{
+    margin-bottom: 0.4em;
+    width: 60%;
+    margin: auto;
+}
+
+.profile-img img{
+    width: 100%;
+    border-radius: 50%; 
+    padding: 0.4em;
+    background-color: #fff;
+    margin-top: -65%;
+}
+
+img:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+    filter: grayscale(20%);
+  }
+
+.intro p{
+    font-size: 1rem;
+}
+
+.name{
+   font-size: 1.5rem;
+   font-weight: 600;
+
+}
+
+.intro{
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 1.6;
+   margin: 20px 0px 30px 0px;
+}
+
+.wrapper:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 20vh;
+    background: rgba(235,0,138, 0.5);
+}
+
+
