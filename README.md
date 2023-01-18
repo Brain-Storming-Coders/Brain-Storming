@@ -1,2 +1,2 @@
 # Brain-Storming
-## Team
+## Team One
