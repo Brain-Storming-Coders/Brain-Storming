@@ -14,10 +14,6 @@ function changeImages() {
 }
 
 
-
-
-
-
 let num = 9;
 function counter() {
     let handShake = document.getElementById("hand-shake");
