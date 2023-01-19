@@ -15,18 +15,21 @@ body {
   justify-content: center;
   align-items: stretch;
   height: 100%;
-  /* background-color: aqua; */
+  overflow: hidden;
+  max-width: 1440px;
+  margin: auto auto;
 }
 
 h1 {
   text-align: center;
-  font-size: 3rem;
-  padding-top: 0.5em;
+  font-size: 2rem;
+  margin: auto auto;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   position: relative;
   width: max-content;
   margin: auto;
+  padding: 10px;
 }
 
 h1::before,
@@ -41,14 +44,15 @@ h1::after {
 
 h1::before {
   background: rgb(123, 213, 249);
+  /* background-color: transparent; */
   animation: typewriter 6s steps(var(--typewriterCharacters)) 1s forwards;
 }
 
 h1::after {
-  margin-top: 0.6em;
+  margin-top: 0.5em;
   width: 0.125em;
   height: 1em;
-  background: black;
+  background: rgb(255, 253, 253);
   animation: typewriter 6s steps(var(--typewriterCharacters)) 1s forwards,
     blink 750ms steps(var(--typewriterCharacters)) infinite;
 }
@@ -74,8 +78,6 @@ header {
 }
 
 .wrapper {
-  /* margin: auto; */
-  margin-top: 4%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +111,6 @@ span {
 
 .profile-card {
   width: 30%;
-
   margin: auto;
   border-radius: 1rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.15);
@@ -169,36 +170,16 @@ img:hover {
   margin: 20px 0px 30px 0px;
 }
 
-/* .wrapper:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 20vh;
-    background: rgba(235,0,138, 0.5);
-} */
-
-footer {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  margin: 2em 0 0 0;
-  text-align: center;
-  font-size: 2rem;
-  padding: 1em 2em;
-  border: 2px solid yellow;
-  background: rgba(235, 0, 138, 0.5);
-}
-
 .images {
-  height: 400px;
-  width: 400px;
-  border: 2px solid red;
+  height: 300px;
+  width: 300px;
   background-image: url("./images/image-1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  transition: background-image 800ms step-end;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px grey;
 }
 button {
   all: unset;
@@ -207,12 +188,16 @@ button {
   padding: 1em 2em;
   border-radius: 10px;
   cursor: pointer;
-  background-color: rgb(29, 199, 156);
-  color: black;
+  background-color: rgb(13, 14, 13);
+  color: rgb(255, 254, 254);
   transition: all 350ms ease-in-out;
+  align-self: center;
+  margin: 2.5em;
+  width: 250px;
+  text-align: center;
 }
 button:hover {
-  scale: 1.1;
+  scale: 0.9;
 }
 .meet {
   position: relative;
@@ -222,7 +207,13 @@ button:hover {
   position: absolute;
   left: -35px;
   right: 0;
-  top: -45px;
+  top: 0;
   bottom: 0;
   text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1em 0;
 }
