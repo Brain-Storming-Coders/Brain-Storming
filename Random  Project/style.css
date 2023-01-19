@@ -243,11 +243,12 @@ h2 {
 }
 
 @media screen and (max-width:800px){
-main,header,button,.spinner{
+main,header,button,.spinner,.photo_card,.meet{
   display: none;
 }
 .pop_up_msg{
   display: block;
+
 }
 
   
