@@ -18,6 +18,7 @@ body {
   overflow: hidden;
   max-width: 1440px;
   margin: auto auto;
+  position: relative;
 }
 
 h1 {
@@ -52,7 +53,7 @@ h1::after {
   margin-top: 0.5em;
   width: 0.125em;
   height: 1em;
-  background: rgb(255, 253, 253);
+  background: rgb(0, 0, 0);
   animation: typewriter 6s steps(var(--typewriterCharacters)) 1s forwards,
     blink 750ms steps(var(--typewriterCharacters)) infinite;
 }
@@ -173,7 +174,7 @@ img:hover {
 .images {
   height: 300px;
   width: 300px;
-  background-image: url("./images/image-1.jpg");
+  /* background-image: url("./images/image-1.png"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -216,4 +217,38 @@ h2 {
   text-align: center;
   font-size: 2rem;
   padding: 1em 0;
+}
+
+.spinner {
+  position: absolute;
+  top: 43%;
+  left: 47%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 6px dotted rgb(10, 10, 10);
+  transition: all 0.3s ease-in-out;
+  animation: rotate 2s linear;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.pop_up_msg{
+  display: none;
+}
+
+@media screen and (max-width:800px){
+main,header,button,.spinner{
+  display: none;
+}
+.pop_up_msg{
+  display: block;
+}
+
+  
 }
