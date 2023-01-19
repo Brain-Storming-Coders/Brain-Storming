@@ -9,8 +9,8 @@ function changeImages() {
     const num1 = Math.ceil(Math.random() * 6)
     const num2 = Math.ceil(Math.random() * 6)  // 0.0000000000000000000000001.. to 5.9999999999999999999999999
     console.log(num1, num2);
-   images[0].style.backgroundImage = `url("./images/image-${num1}.jpg")`;
-   images[1].style.backgroundImage = `url("./images/image-${num2}.jpg")`;
+    images[0].style.backgroundImage = `url("./images/image-${num1}.jpg")`;
+    images[1].style.backgroundImage = `url("./images/image-${num2}.jpg")`;
 }
 
 
@@ -28,19 +28,15 @@ function counter() {
         console.log(num)
         drumRoll.play();
         changeImages();
-
     }
 }
-
 let n = 0;
-
 btn.addEventListener("click", () => {
     n++;
     if (n === 1) {
         setInterval(counter, 900);
         btn.innerText = "Double click to start again"
-    }else{
+    } else {
         location.reload();
-        
     }
 })
