@@ -1,4 +1,3 @@
-
 const btn = document.getElementsByTagName("button")[0];
 let drumRoll = new Audio('./Audio/drum-roll.mp3');
 let images = document.getElementsByClassName('images');
@@ -12,14 +11,7 @@ window.addEventListener("load", () => {
         main.style.visibility = "visible"
         console.log(spinner);
     })
-
-
 })
-
-
-
-
-
 
 images = Array.from(images);
 // console.log(images)
@@ -33,7 +25,6 @@ function changeImages() {
         console.log(num1, num2);
     }
 }
-
 
 let num = 9;
 function counter() {
@@ -51,6 +42,7 @@ function counter() {
         changeImages();
     }
 }
+
 let n = 0;
 btn.addEventListener("click", () => {
     n++;

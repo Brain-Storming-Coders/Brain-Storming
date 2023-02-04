@@ -25,9 +25,9 @@ function mayur () {
     return multiply
 }
 
-// let store = mayur();
-// let store1 = store(10)
-// console.log(store1(20));
+let store = mayur();
+let store1 = store(10)
+console.log(store1(20));
 
 // console.log(store(10)(20));
 
@@ -59,19 +59,19 @@ function mayur () {
 // setCounter();
 // setCounter();
 
-function wrapCounter () {
-    let count = 0
-    function setCounter () {
-        count++;
-        return count;       
-    }
-    return setCounter
-}
+// function wrapCounter () {
+//     let count = 0
+//     function setCounter () {
+//         count++;
+//         return count;       
+//     }
+//     return setCounter
+// }
 
-count = 5;
+// count = 5;
 
-let store = wrapCounter();
-console.log(store());
-console.log(store());
-console.log(store());
+// let store = wrapCounter();
+// console.log(store());
+// console.log(store());
+// console.log(store());
 
