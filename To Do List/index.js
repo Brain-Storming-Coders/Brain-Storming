@@ -1,6 +1,6 @@
-let accordion = document.getElementsByClassName("accordion");
-let titleInput = document.getElementsByClassName("input-title")[0];
-let detailInput = document.getElementsByTagName("textarea")[0];
+const accordion = document.getElementsByClassName("accordion");
+const titleInput = document.getElementsByClassName("input-title")[0];
+const detailInput = document.getElementsByTagName("textarea")[0];
 console.log(detailInput);
 
 for (let i = 0; i < accordion.length; i++) {
@@ -14,3 +14,8 @@ for (let i = 0; i < accordion.length; i++) {
     }
   });
 }
+
+if(localStorage.getItem("todo") == null){
+  localStorage.setItem('todo', '[]')
+}
+let arr = JSON.parse(localStorage.getItem("todo"));
