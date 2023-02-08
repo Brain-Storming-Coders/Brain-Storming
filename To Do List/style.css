@@ -62,10 +62,10 @@ display: flex;
 gap: 10px;
 }
   
-.active, .accordion:hover {
+/* .active, .accordion:hover {
 background-color: #4e54c8;
 color: #fff;
-}
+} */
  
 .title-wrap{
     display: flex;
@@ -76,6 +76,7 @@ color: #fff;
 .fa-plus-square{
     color: #fff;
     width: 30px;
+    cursor: pointer;
 }
 
 .fa-pen{
