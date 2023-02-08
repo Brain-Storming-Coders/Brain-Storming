@@ -153,20 +153,20 @@ const Person = function (firstName, lastName, birthYear, currentYear) {
     // this.calcAge = function () {
     //     return `The age of ${this.firstName} ${this.lastName} is 
     //        ${this.currentYear - this.birthYear}`
-        
+
     // }
 }
 
-Person.prototype.calcAge = function (){
+Person.prototype.calcAge = function () {
     return `The age of ${this.firstName} ${this.lastName} is ${this.currentYear - this.birthYear}`
 
 }
-const mayur = new Person ('Mayur',"Tiwari",1999,2023);
+const mayur = new Person('Mayur', "Tiwari", 1999, 2023);
 // console.log(mayur)
 
-const atul = new Person ('Atul',"Singh",1999,2023);
-const bharat = new Person ('Bharat',"chavhan",1998,2023);
-const riya = new Person ('Riya',"Tiwari",1999,2023);
+const atul = new Person('Atul', "Singh", 1999, 2023);
+const bharat = new Person('Bharat', "chavhan", 1998, 2023);
+const riya = new Person('Riya', "Tiwari", 1999, 2023);
 
 console.log(mayur)
 console.log(riya)
