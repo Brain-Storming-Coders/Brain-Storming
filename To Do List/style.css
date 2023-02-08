@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+
+}
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    margin: 3% auto;
+    gap: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    gap: 10px;
+}
+
+.input-title{
+    outline: none;
+    height: 30px;
+}
+
+textarea{
+    outline: none;
+    resize: none;
+}
+
+.accordion-container{
+    width: 30%;
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.accordion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.icons{
+display: flex;
+gap: 10px;
+}
+  
+.active, .accordion:hover {
+background-color: #4e54c8;
+color: #fff;
+}
+ 
+.title-wrap{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.fa-plus-square{
+    color: #fff;
+    width: 30px;
+}
+
+.fa-pen{
+    color: #0ffa52
+}
+
+.fa-trash{
+    color: #fd5151;
+}
+
+label{
+    font-size: 0.9rem;
+}
+
+#completed label {
+  text-decoration: line-through;
+  color: #06b83896
+}
+
+.panel {
+padding: 0 18px;
+background-color: #4e54c8;
+color: #fff;
+display: none;
+overflow: hidden;
+margin-left: 8%;
+}
+
+.search {
+width: 30%;
+position: relative;
+display: flex;
+}
+  
+.searchTerm {
+width: 100%;
+border: 3px solid #fff;
+border-right: none;
+padding: 5px;
+height: 36px;
+border-radius: 5px 0 0 5px;
+outline: none;
+color: #9DBFAF;
+}
+
+.searchTerm:focus{
+color: #4e54c8;
+}
+
+.searchButton {
+width: 40px;
+height: 36px;
+border: 1px solid #fff;
+background: #4e54c8;
+text-align: center;
+color: #fff;
+border-radius: 0 5px 5px 0;
+cursor: pointer;
+font-size: 20px;
+}
+  
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #4e54c8;
+    /* overflow: hidden; */
+    overflow-x: hidden;
+}
+
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 17s linear infinite;
+}
+
+.background li:nth-child(0) {
+    left: 12%;
+    width: 126px;
+    height: 126px;
+    bottom: -126px;
+    animation-delay: 1s;
+}
+
+.background li:nth-child(1) {
+    left: 36%;
+    width: 104px;
+    height: 104px;
+    bottom: -104px;
+    animation-delay: 2s;
+}
+
+.background li:nth-child(2) {
+    left: 73%;
+    width: 113px;
+    height: 113px;
+    bottom: -113px;
+    animation-delay: 6s;
+}
+
+.background li:nth-child(3) {
+    left: 73%;
+    width: 124px;
+    height: 124px;
+    bottom: -124px;
+    animation-delay: 4s;
+}
+
+.background li:nth-child(4) {
+    left: 64%;
+    width: 129px;
+    height: 129px;
+    bottom: -129px;
+    animation-delay: 10s;
+}
+
+.background li:nth-child(5) {
+    left: 13%;
+    width: 143px;
+    height: 143px;
+    bottom: -143px;
+    animation-delay: 3s;
+}
+
+.background li:nth-child(6) {
+    left: 47%;
+    width: 150px;
+    height: 150px;
+    bottom: -150px;
+    animation-delay: 2s;
+}
+
+.background li:nth-child(7) {
+    left: 27%;
+    width: 157px;
+    height: 157px;
+    bottom: -157px;
+    animation-delay: 1s;
+}
+
+.background li:nth-child(8) {
+    left: 48%;
+    width: 110px;
+    height: 110px;
+    bottom: -110px;
+    animation-delay: 2s;
+}
+
+.background li:nth-child(9) {
+    left: 63%;
+    width: 185px;
+    height: 185px;
+    bottom: -185px;
+    animation-delay: 3s;
+}
+
