@@ -1,50 +1,18 @@
-// let accordion = document.getElementsByClassName("accordion");
-
-
-// for (let i = 0; i < accordion.length; i++) {
-//   accordion[i].addEventListener("click", function () {
-//     this.classList.toggle("active");
-//     var panel = this.nextElementSibling;
-//     if (panel.style.display === "block") {
-//       panel.style.display = "none";
-//     } else {
-//       panel.style.display = "block";
-//     }
-//   });
-// }
 showNote();
-const downArrow = Array.from(document.getElementsByClassName('fa-chevron-down'))
 
-console.log(downArrow)
+const downArrow = Array.from(document.getElementsByClassName('fa-chevron-down'))
 const panel = document.getElementsByClassName('panel')
 
 downArrow.forEach(btn => {
-  let arrowDown = true;
   btn.addEventListener("click", (e) => {
-  
-    console.log(e.target)
-    if (arrowDown) {
-      e.target.parentElement.nextElementSibling.style.display = "block";
-      btn.classList.add("fa-chevron-up")
-      arrowDown = false
-      console.log(arrowDown)
-    } else {
-      e.target.parentElement.nextElementSibling.style.display = "none";
-      btn.classList.remove("fa-chevron-up")
-      arrowDown = true;
-      console.log(arrowDown)
-    }
 
-    //   console.log(e.target)
-    
-    //   e.target.parentElement.nextElementSibling.style.display = "block";
-    //   btn.classList.add("fa-chevron-up")
-    
-    // btn.addEventListener("click",(e)=>{
-    //   e.target.parentElement.nextElementSibling.style.display = "none";
-    //   btn.classList.add("fa-chevron-down")
-    // })
-
+  btn.classList.toggle("fa-chevron-up")
+  if (e.target.classList.contains("fa-chevron-up")){
+      e.target.parentElement.nextElementSibling.style.display = "block"
+  } else {
+      e.target.parentElement.nextElementSibling.style.display = "none"
+  }
+   
   })
 })
 
