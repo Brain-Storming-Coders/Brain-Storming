@@ -10,7 +10,7 @@ body {
   margin: 0 auto;
   max-width: 1440px;
   width: 100vw;
-  height: 100vh;
+
   background-color: #ff3cac;
   background-image: linear-gradient(
     225deg,
@@ -24,14 +24,17 @@ body {
 }
 
 header {
-  background-color: rgb(34, 33, 33);
-  padding: 1em 1em;
+  background-color: #111827;
+  border: 1px solid transparent;
+
+  padding: 0.5em 1em;
 }
 nav {
   padding: 0.5em 5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 nav > a {
@@ -63,6 +66,68 @@ main {
   gap: 1em;
   padding: 2em 1em;
 }
+
+/* CSS */
+.btn {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.btn:hover {
+  background-color: #374151;
+}
+
+.btn:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 0.75rem 1.5rem;
+  }
+}
+.btn:hover {
+  background-color: #374151;
+}
+
+.btn:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.btn:active {
+  scale: 0.9;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 0.75rem 1.5rem;
+  }
+}
 main > input,
 main > textarea {
   outline: none;
@@ -72,6 +137,7 @@ main > textarea {
   border-radius: 7px;
   resize: none;
   font-size: 1.1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main > input:focus,
 main > textarea:focus {
@@ -94,13 +160,12 @@ button {
 .container {
   display: flex;
   gap: 1em;
-  border: 1px solid red;
   flex-wrap: wrap;
   padding: 1em;
 }
 .card {
   width: 300px;
-  height: 300px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -114,10 +179,55 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
   flex-direction: column;
-  gap:1.5em;
+  gap: 1.5em;
 }
-.top{
-  align-self: end;
-  color:rgb(20, 19, 20);
+.top {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(20, 19, 20);
   cursor: pointer;
+}
+.delete {
+  font-size: 1.7rem;
+  color: rgb(44, 42, 42);
+}
+.delete:active {
+  scale: 0.9;
+}
+
+.notesEmpty {
+  color: rgb(36, 6, 61);
+  font-size: 2.5rem;
+  width: 100%;
+  text-align: center;
+}
+#textContainer {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+.title {
+  font-size: 2.2rem;
+  color: #370d9b;
+}
+.description {
+  font-size: 1.3rem;
+  color: rgb(211, 211, 211);
+  font-weight: 800;
+}
+.date {
+  list-style: none;
+  font-style: 1.1rem;
+  font-weight: bold;
+  color: #292928;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    justify-content: center;
+  }
+  nav{
+    justify-content: center;
+    gap:2em;
+  }
 }

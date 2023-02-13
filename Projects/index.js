@@ -1,69 +1,16 @@
-// // Storing our data on local storage on our browser
-// const addNoteBtn = document.getElementsByClassName("btn")[0];
-
-// addNoteBtn.addEventListener("click", () => {
-//     let noteDescription = document.getElementById("noteDescription");
-//     let noteTitle = document.getElementById("noteTitle");
-//     if (noteTitle.value || noteDescription.value) {
-
-//         let notes = localStorage.getItem("notesKey");
-//         console.log(notes);
-//         if (notes === null) {
-//             notesObject = {
-//                 title: [],
-//                 detail: [],
-//             };
-//         } else {
-//             notesObject = JSON.parse(notes);
-//         }
-//         notesObject.title.push(noteTitle.value);
-//         notesObject.detail.push(noteDescription.value);
-//         localStorage.setItem("notesKey", JSON.stringify(notesObject));
-//         console.log(notes, notesObject);
-//         noteDescription.value = "";
-//         noteTitle.value = "";
-//     }
-//     showNotes();
-// });
-
-// // Function to show our notes on Web Page
-// const showNotes = function () {
-//     let cardContainer = document.getElementsByClassName("container")[0];
-
-//     let notes = localStorage.getItem("notesKey");
-//     console.log(notes);
-
-//     console.log(notesObject)
-//     let titleArr = notesObject.title;
-//     let detailArr = notesObject.detail;
-//     let html;
-//     for (let i = 0; i < titleArr.length; i++) {
-
-//         html += `  <div class="card">
-// <h3>${titleArr[i]}</h3>
-// <p>${detailArr[i]}</p>
-// </div>`
-
-//         cardContainer.innerHTML = html;
-//     }
-
-// };
-
-// showNotes();
 
 "use strict";
 let notesValue;
 showNotes();
 // Storing in localStorage
 const addBtn = document.getElementsByClassName("btn")[0];
-
 addBtn.addEventListener("click", () => {
     let titleText = document.getElementById("noteTitle");
     let notesDescription = document.getElementById("noteDescription");
 
     if (titleText.value && notesDescription.value) {
         let notes = localStorage.getItem("notesKey");
-        console.log(notes);
+        // console.log(notes);
         if (notes === null) {
             notesValue = {
                 title: [],
@@ -72,26 +19,33 @@ addBtn.addEventListener("click", () => {
         } else {
             notesValue = JSON.parse(notes);
         }
-
         notesValue.title.push(titleText.value);
         notesValue.description.push(notesDescription.value);
-
-        console.log(notes);
+        // console.log(notes);
         localStorage.setItem("notesKey", JSON.stringify(notesValue));
         titleText.value = "";
         notesDescription.value = "";
     }
-
     showNotes();
 });
 
 // Creating a Function to show notes on web page
 function showNotes() {
+    const date = new Date();
+    let day = date.getDay();
+    let month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    if (day < 10) {
+        day = "0" + day
+    }
+    if (month < 10) {
+        month = "0" + month
+    }
     const container = document.getElementsByClassName("container")[0];
     const notes = localStorage.getItem("notesKey");
     if (notes) {
         let notes = localStorage.getItem("notesKey");
-        console.log(notes);
+        // console.log(notes);
         if (notes === null) {
             notesValue = {
                 title: [],
@@ -100,34 +54,65 @@ function showNotes() {
         } else {
             notesValue = JSON.parse(notes);
         }
-        const title = notesValue.title; // [.........................]
-        const detail = notesValue.description; // [........................]
+        const title = notesValue.title;
+        const detail = notesValue.description;
         let html = "";
         for (let i = 0; i < title.length; i++) {
             html += ` <div class="card">
-            <div class = "top"> <i class="fa-solid fa-trash"></i></div>
-           <div>
-           <h3>${title[i]}</h3>
-       <p>${detail[i]}</p>
-           </div>
-       
+            <div class = "top">
+            <li class = "date" >Created on : <span>${day}</span>:<span>${month}</span>:<span>${year}</span></li>
+             <i class="fa-solid fa-trash delete" ></i>
+             </div>
+           <div id = "textContainer">
+           <h3 class = "title">${title[i]}</h3>
+       <p class = "description" >${detail[i]}</p>
+           </div> 
    </div>`;
         }
         container.innerHTML = html;
+        if (!container.innerHTML) {
+            container.innerHTML = `<h2 class = "notesEmpty"> Nothing to show ! Please add a note 📝📝</h2>`
+        }
     }
-}
-
-const deleteBtns = Array.from(document.getElementsByClassName("fa-trash"))
-const cards = Array.from(document.getElementsByClassName('card'));
-
-for (let i = 0; i < deleteBtns.length; i++) {
-    deleteBtns[i].addEventListener("click", () => {
-        cards[i].style.display = 'none';
-        notesValue["title"].splice(i, 1)
-        notesValue["description"].splice(i, 1)
-        console.log(notesValue)
-        localStorage.setItem('notesKey', JSON.stringify(notesValue));
+    const deleteBtns = Array.from(document.getElementsByClassName('delete'))
+    deleteBtns.forEach((elem, index) => {
+        elem.addEventListener('click', () => {
+            notesValue['title'].splice(index, 1);
+            notesValue['description'].splice(index, 1)
+            localStorage.setItem('notesKey', JSON.stringify(notesValue))
+            showNotes();
+        })
     })
-
 }
+
+
+// Searching a note based on title and description
+const searchInput = document.getElementById('search')
+searchInput.addEventListener('input', (e) => {
+    const text = e.target.value.toLowerCase();
+    console.log(text)
+    const cardTitle = Array.from(document.getElementsByClassName('title'));
+
+    console.log(cardTitle)
+    const cardDetail = Array.from(document.getElementsByClassName('description'));
+    const title = cardTitle.map(x => x.innerText.toLowerCase());
+    const description = cardDetail.map(x => x.innerText.toLowerCase());
+    console.log(title)
+    const container = document.getElementsByClassName("container")[0];
+    for (let i = 0; i < cardTitle.length; i++) {
+        if (!text) {
+            cardTitle[i].parentElement.parentElement.style.display = 'block';
+        }
+        if (title[i].includes(text) || description[i].includes(text)) {
+            cardTitle[i].parentElement.parentElement.style.display = 'block';
+        } else {
+            cardTitle[i].parentElement.parentElement.style.display = 'none';
+        }
+    }
+    
+
+})
+
+
+
 
