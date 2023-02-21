@@ -1,0 +1,214 @@
+// const parent = document.getElementsByClassName('card')[0];
+// const neighbour = document.getElementsByClassName('neighbour')[0];
+
+/*
+let neighbourData;
+const request = new XMLHttpRequest();
+const country = "india"
+request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+request.send();
+request.addEventListener('load', function () {
+
+
+    const [respone] = JSON.parse(this.response)
+    console.log(respone.borders)
+    document.body.innerHTML += `
+       <img src = "${respone.flags.png}" alt = "loading...">
+
+       `
+    neighbourData = respone.borders[0]
+    console.log(neighbourData)
+    const request2 = new XMLHttpRequest();
+    request2.open('GET', `https://restcountries.com/v3.1/alpha/${neighbourData}`)
+    request2.send();
+    request2.addEventListener('load', function () {
+
+        const response2 = JSON.parse(this.responseText)[0]
+        console.log(response2.flags)
+        document.body.innerHTML += `
+            <img src = "${response2.flags.png}" alt = "loading...">
+
+
+    })
+})
+
+*/
+
+// const request2 = new XMLHttpRequest();
+// request2.open('GET', `https://restcountries.com/v3.1/alpha/BGD`)
+// request2.send();
+// request2.addEventListener('load', function () {
+//     const response2 = JSON.parse(this.responseText)[0]
+//     console.log(response2.flags)
+//     document.body.innerHTML += `
+//         <img src = "${response2.flags.png}" alt = "loading...">
+//         `
+// })
+
+// setTimeout(() => {
+//     console.log('1')
+//     setTimeout(() => {
+//         console.log('2')
+//         setTimeout(() => {
+//             console.log('3')
+//             setTimeout(() => {
+//                 console.log('4')
+//                 setTimeout(() => {
+//                     console.log('5')
+//                     setTimeout(() => {
+//                         console.log('6')
+//                         setTimeout(() => {
+//                             console.log('7')
+
+//                         }, 1000)
+
+//                     }, 1000)
+
+//                 }, 1000)
+
+//             }, 1000)
+
+//         }, 1000)
+
+//     }, 1000)
+// }, 1000)
+
+//Restraunt
+// fetch dish available nearby
+// Order create -- api
+// Payment   -- api
+// order -- book --api
+// msg payment done; -- prepare
+
+// 1. order create ---2. payment api
+// `orderCreateAPI.onload =  function () {
+//     console.log(order created)
+//     PaymentAPI.onload =  function () {
+//         console.log(proceed to payment gateway)
+//     }
+// }`
+
+// Promises
+
+// Promise ---> Create
+
+// Promise ---> Fullfill or Reject
+
+// building a promise
+// const promise1 = new Promise(function (resolve, reject) {
+//     //Executor
+//     setTimeout(() => {
+//         resolve('p1 resolved')
+//     }, 2000)
+
+//     setTimeout(() => {
+//         reject('Heart Break💔')
+//     }, 2000)
+
+// })
+
+// console.log(promise1)
+
+// //Consuming a promise
+// promise1.catch((response) => {
+//     console.log(response)
+//     console.log(promise1)
+// })
+
+// // Promise Chaining
+// const p1 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve("1")
+//     }, 2000);
+// })
+
+// p1.then((data) => {
+//     console.log(data)
+//     return new Promise((resolve, reject) => {
+//         resolve('2')
+//     })
+// }).then((data2) => {
+//     console.log(data2)
+//     return new Promise((resolve, reject) => {
+//         resolve('3')
+//     })
+// }).then((data3) => {
+//     console.log(data3)
+//     return new Promise((resolve, reject) => {
+//         resolve('4')
+//     })
+// }).then((data4) => {
+//     console.log(data4)
+//     return new Promise((resolve, reject) => {
+//         resolve('5')
+//     })
+// }).then((data5) => {
+//     console.log(data5)
+//     return new Promise((resolve, reject) => {
+//         resolve('6')
+//     })
+// }).then((data6) => {
+//     console.log(data6)
+// })
+
+document.body.innerHTML += `   <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text"></p>
+      </div>
+    </div>`;
+
+const img = Array.from(document.getElementsByClassName("card-img-top"));
+const pokeName = Array.from(document.getElementsByClassName("card-text"));
+
+console.log(img[0]);
+function getPokemonInfo() {
+  const request = fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
+
+  request
+    .then((response) => {
+      // console.log(response.json())
+      return response.json();
+    })
+    .then((data) => {
+      // console.log(data.results);
+      const pokeArr = data.results;
+      pokeArr.forEach((item, index) => {
+        console.log(item);
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  const request2 = fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
+  request2
+    .then((resolve) => {
+      return resolve.json();
+    })
+    .then((data2) => {
+      const arr = data2.results;
+      arr.forEach((item, index) => {
+        console.log(item.url);
+        fetch(item.url)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data2) => {
+            console.log(data2.sprites.other.dream_world.front_default);
+            img[index].src = data2.sprites.other.dream_world.front_default;
+          });
+      });
+    });
+}
+
+// .catch((error) => {
+//     alert('Error Occured')
+// })
+// }
+
+// const request3 = new XMLHttpRequest();
+// request3.open('GET', `https://pokeapi.co/api/v2/pokemon/charmander`);
+// request3.send();
+// request3.onload = function(){
+//     console.log(this.response)

@@ -83,7 +83,8 @@ function getCountry(country = 'india') {
             for (let i in currencyObj) {
                 currency = currencyObj[i].name
             }
-            card.innerHTML = `
+            card.innerHTML +=  `
+            
             <img src="${flag}"
             class="card-img-top" alt="...">
         <div class="card-body">
@@ -99,6 +100,7 @@ function getCountry(country = 'india') {
             <li class="list-group-item">Currency : <strong> ${currency} </strong>  </li>
             
         </ul>
+       
             `
         } else {
             card.innerHTML = `
@@ -111,6 +113,8 @@ function getCountry(country = 'india') {
        `
 
         }
+
+        
     }
     card.addEventListener('animationend', () => {
         card.classList.remove('x')
