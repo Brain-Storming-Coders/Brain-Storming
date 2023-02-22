@@ -151,57 +151,6 @@ request.addEventListener('load', function () {
 //     console.log(data6)
 // })
 
-document.body.innerHTML += `   <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <p class="card-text"></p>
-      </div>
-    </div>`;
-
-const img = Array.from(document.getElementsByClassName("card-img-top"));
-const pokeName = Array.from(document.getElementsByClassName("card-text"));
-
-console.log(img[0]);
-function getPokemonInfo() {
-  const request = fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
-
-  request
-    .then((response) => {
-      // console.log(response.json())
-      return response.json();
-    })
-    .then((data) => {
-      // console.log(data.results);
-      const pokeArr = data.results;
-      pokeArr.forEach((item, index) => {
-        console.log(item);
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  const request2 = fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
-  request2
-    .then((resolve) => {
-      return resolve.json();
-    })
-    .then((data2) => {
-      const arr = data2.results;
-      arr.forEach((item, index) => {
-        console.log(item.url);
-        fetch(item.url)
-          .then((response) => {
-            return response.json();
-          })
-          .then((data2) => {
-            console.log(data2.sprites.other.dream_world.front_default);
-            img[index].src = data2.sprites.other.dream_world.front_default;
-          });
-      });
-    });
-}
-
 // .catch((error) => {
 //     alert('Error Occured')
 // })
@@ -212,3 +161,5 @@ function getPokemonInfo() {
 // request3.send();
 // request3.onload = function(){
 //     console.log(this.response)
+
+
