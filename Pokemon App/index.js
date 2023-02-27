@@ -151,6 +151,7 @@ request.addEventListener('load', function () {
 //     console.log(data6)
 // })
 
+<<<<<<< HEAD:New folder/index.js
 
 // const img = Array.from(document.getElementsByClassName("card-img-top"));
 // const pokeName = Array.from(document.getElementsByClassName("card-text"));
@@ -214,3 +215,17 @@ function getPokemonInfo() {
 }
 
 getPokemonInfo()
+=======
+// .catch((error) => {
+//     alert('Error Occured')
+// })
+// }
+
+// const request3 = new XMLHttpRequest();
+// request3.open('GET', `https://pokeapi.co/api/v2/pokemon/charmander`);
+// request3.send();
+// request3.onload = function(){
+//     console.log(this.response)
+
+
+>>>>>>> 94df0ac999c8a58547304dcf8747f1874e08921c:Pokemon App/index.js
