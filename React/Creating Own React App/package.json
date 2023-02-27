@@ -1,0 +1,21 @@
+{
+  "name": "creating-own-react-app",
+  "version": "1.0.0",
+  "description": "Creating Own React App by Brainstormers",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "BrainStormers",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "cover 99.5%"
+  ]
+}
