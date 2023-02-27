@@ -1,5 +1,5 @@
 // const heading = document.createElement("h1")
-// heading.innerHTML = "We are brainstorming."
+// heading.innerHTML = "We are doing brainstorming."
 // const root = document.getElementById('root')
 // root.appendChild(heading)
 
